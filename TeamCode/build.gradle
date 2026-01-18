@@ -17,8 +17,14 @@ apply from: '../build.dependencies.gradle'
 
 android {
     namespace = 'org.firstinspires.ftc.teamcode'
-
+    compileSdk 35      // add this
+    defaultConfig {    // add this block
+        minSdk 24
+    }
     packagingOptions {
+        jniLibs {
+            pickFirsts += ['**/*.so']
+        }
         jniLibs.useLegacyPackaging true
     }
 }
